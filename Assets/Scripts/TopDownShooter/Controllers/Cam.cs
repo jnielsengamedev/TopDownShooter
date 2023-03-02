@@ -42,10 +42,15 @@ namespace TopDownShooter.Controllers
 			return camera.orthographicSize * camera.aspect;
 		}
 
-		private void CalculateHorizontalSize()
+		public void CalculateHorizontalSize()
 		{
 			_horizontalSize = GetHorizontalSize(_camera);
 			_tilemapBounds = new TilemapBounds(tilemap.bounds, _horizontalSize, _camera.orthographicSize);
+		}
+
+		public static Cam Get()
+		{
+			return GameObject.Find("Main Camera").GetComponent<Cam>();
 		}
 	}
 }
