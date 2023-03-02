@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace TopDownShooter.Controllers
@@ -6,6 +5,8 @@ namespace TopDownShooter.Controllers
 	public class Player : MonoBehaviour
 	{
 		public float moveSpeed;
+
+		public static Player Instance => GameObject.Find("Player").GetComponent<Player>();
 
 		private float _horizontalMovement;
 		private float _verticalMovement;
