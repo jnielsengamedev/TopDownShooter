@@ -21,7 +21,7 @@ namespace TopDownShooter.Controllers
 		private void Start()
 		{
 			health = maxHealth;
-			target = GameObject.Find("Player").transform;
+			target = Player.Instance.transform;
 		}
 
 		private void Update()
@@ -43,11 +43,20 @@ namespace TopDownShooter.Controllers
 			}
 		}
 
-		public void TakeDamage(float damageAmount)
+		private void OnCollisionEnter2D(Collision2D collision)
 		{
+			DestroyCheck(collision);
 		}
 
-		private void OnCollisionEnter2D(Collision2D collision)
+		private static void DestroyCheck(Collision2D collision)
+		{
+			if (collision.gameObject.CompareTag("Player"))
+			{
+				Destroy(collision.gameObject);
+			}
+		}
+
+		public void TakeDamage(float damageAmount)
 		{
 		}
 	}
