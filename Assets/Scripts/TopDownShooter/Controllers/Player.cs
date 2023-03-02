@@ -5,6 +5,7 @@ namespace TopDownShooter.Controllers
 	public class Player : MonoBehaviour
 	{
 		public float moveSpeed;
+		public GameObject bullet;
 
 		public static Player Instance => GameObject.Find("Player").GetComponent<Player>();
 
@@ -21,7 +22,9 @@ namespace TopDownShooter.Controllers
 		{
 			Movement();
 			FaceMouse();
+			ShootCheck();
 		}
+
 
 		private void Movement()
 		{
@@ -39,6 +42,14 @@ namespace TopDownShooter.Controllers
 			var rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 
 			transform.rotation = rotation;
+		}
+		
+		private void ShootCheck()
+		{
+			if (Input.GetButtonDown("Fire1"))
+			{
+				Instantiate(bullet, transform.position, transform.rotation);
+			}
 		}
 	}
 }
