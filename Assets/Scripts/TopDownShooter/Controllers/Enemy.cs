@@ -50,7 +50,7 @@ namespace TopDownShooter.Controllers
 
 		private static void DestroyCheck(Collision2D collision)
 		{
-			if (collision.gameObject.name == "Player")
+			if (collision.gameObject.CompareTag("Player"))
 			{
 				Destroy(collision.gameObject);
 			}
