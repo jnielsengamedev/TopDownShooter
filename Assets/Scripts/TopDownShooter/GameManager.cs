@@ -35,9 +35,19 @@ namespace TopDownShooter
 		/// <summary>
 		/// This method lets you add an amount to the Score.
 		/// </summary>
+		/// <param name="score">The score you want to add.</param>
 		public static void AddScore(long score)
 		{
 			_state.Score += score;
+		}
+
+		/// <summary>
+		/// This method lets you subtract an amount to the Score.
+		/// </summary>
+		/// <param name="score">The score you want to subtract.</param>
+		public static void SubtractScore(long score)
+		{
+			_state.Score -= score;
 		}
 
 		/// <summary>
