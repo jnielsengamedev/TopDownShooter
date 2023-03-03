@@ -1,20 +1,21 @@
 using TopDownShooter.Controllers;
 using TopDownShooter.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace TopDownShooter
 {
 	public class GameManager : MonoBehaviour
 	{
-		private static State _state;
+		public static State State;
 		private Cam _cam;
 		private VisualElement _rootElement;
 		private Label _score;
 
 		private void Awake()
 		{
-			_state = new State();
+			State = new State();
 			_cam = Cam.Get();
 			_rootElement = GetComponent<UIDocument>().rootVisualElement;
 			_rootElement.RegisterCallback<GeometryChangedEvent>(_ => _cam.CalculateHorizontalSize());
@@ -29,7 +30,7 @@ namespace TopDownShooter
 
 		private void UpdateUI()
 		{
-			_score.text = $"Score: {_state.Score}";
+			_score.text = $"Score: {State.Score}";
 		}
 
 		/// <summary>
@@ -38,7 +39,7 @@ namespace TopDownShooter
 		/// <param name="score">The score you want to add.</param>
 		public static void AddScore(long score)
 		{
-			_state.Score += score;
+			State.Score += score;
 		}
 
 		/// <summary>
@@ -47,7 +48,7 @@ namespace TopDownShooter
 		/// <param name="score">The score you want to subtract.</param>
 		public static void SubtractScore(long score)
 		{
-			_state.Score -= score;
+			State.Score -= score;
 		}
 
 		/// <summary>
@@ -55,7 +56,20 @@ namespace TopDownShooter
 		/// </summary>
 		public static void ResetScore()
 		{
-			_state.Score = 0;
+			State.Score = 0;
+		}
+
+		/// <summary>
+		/// Load the GameOver screen.
+		/// </summary>
+		public static void GameOver()
+		{
+			if (HighScoreManager.HighScore.Score < State.Score)
+			{
+				HighScoreManager.HighScore = HighScoreManager.ScoreToHighScore(State.Score);
+			}
+
+			SceneManager.LoadScene("GameOver");
 		}
 	}
 }

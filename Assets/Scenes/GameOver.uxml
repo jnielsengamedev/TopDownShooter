@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scenes/UI.uss?fileID=7433441132597879392&amp;guid=032cb0d25ab974749a964592e2246525&amp;type=3#UI" />
+    <ui:VisualElement>
+        <ui:Label text="Game Over" display-tooltip-when-elided="true" style="font-size: 32px; -unity-font-style: bold; -unity-text-align: upper-center;" />
+        <ui:Label text="Score: null" display-tooltip-when-elided="true" name="Score" style="font-size: 24px; -unity-text-align: upper-center; -unity-font-style: bold;" />
+        <ui:Label text="High Score: null" display-tooltip-when-elided="true" name="HighScore" style="font-size: 24px; -unity-text-align: upper-center; -unity-font-style: bold;" />
+        <ui:Button text="Restart" display-tooltip-when-elided="true" name="Restart" class="button" />
+        <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="MainMenu" class="button" />
+    </ui:VisualElement>
+</ui:UXML>
