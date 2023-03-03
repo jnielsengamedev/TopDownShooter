@@ -21,6 +21,7 @@ namespace TopDownShooter.Controllers
 
 		private void Update()
 		{
+			if (!followedObject) return;
 			transform.position = new Vector3(GetClampedHorizontalPosition(), GetClampedVerticalPosition(), -10);
 		}
 
