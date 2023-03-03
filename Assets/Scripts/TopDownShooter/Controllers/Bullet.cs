@@ -6,6 +6,7 @@ namespace TopDownShooter.Controllers
     public class Bullet : MonoBehaviour
     {
         public float moveSpeed;
+        public long enemyScore;
 
         private Spawn _spawner;
 
@@ -29,7 +30,7 @@ namespace TopDownShooter.Controllers
         {
             if (!col.gameObject.CompareTag("Enemy")) return;
             Destroy(col.gameObject);
-            GameManager.AddScore(500);
+            GameManager.AddScore(enemyScore);
             _spawner.CalculateEnemyCount();
             Destroy(gameObject);
         }
