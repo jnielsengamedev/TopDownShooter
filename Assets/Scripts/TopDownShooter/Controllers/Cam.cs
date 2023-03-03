@@ -34,7 +34,7 @@ namespace TopDownShooter.Controllers
 		private float GetClampedVerticalPosition()
 		{
 			return Mathf.Clamp(followedObject.position.y,
-				_tilemapBounds.Down < _camera.orthographicSize ? _tilemapBounds.Up : _tilemapBounds.Down,
+				_tilemapBounds.Down > _camera.orthographicSize ? _tilemapBounds.Up : _tilemapBounds.Down,
 				_tilemapBounds.Up);
 		}
 
