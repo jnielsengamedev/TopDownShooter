@@ -9,13 +9,16 @@ namespace TopDownShooter.Controllers
 		[SerializeField] float health, maxHealth = 3f;
 
 		[SerializeField] private float moveSpeed = 5f;
-		Rigidbody2D rb;
-		Transform target;
-		Vector2 moveDirection;
+		private Rigidbody2D rb;
+		private Transform target;
+		private Vector2 moveDirection;
+		private Spawn _spawner;
 
 		private void Awake()
 		{
 			rb = GetComponent<Rigidbody2D>();
+			_spawner = Spawn.Get();
+			_spawner.CalculateEnemyCount();
 		}
 
 		private void Start()

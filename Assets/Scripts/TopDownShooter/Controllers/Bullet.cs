@@ -9,8 +9,11 @@ namespace TopDownShooter.Controllers
     {
         public float moveSpeed;
 
+        private Spawn _spawner;
+
         private void Awake()
         {
+            _spawner = Spawn.Get();
             StartCoroutine(BulletExpiry());
         }
 
@@ -21,15 +24,16 @@ namespace TopDownShooter.Controllers
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            EnemyCheck(col, gameObject);
+            EnemyCheck(col);
         }
 
-        private static void EnemyCheck(Component col, Object self)
+        private void EnemyCheck(Component col)
         {
             if (!col.gameObject.CompareTag("Enemy")) return;
             Destroy(col.gameObject);
             GameManager.AddScore(500);
-            Destroy(self);
+            _spawner.CalculateEnemyCount();
+            Destroy(gameObject);
         }
 
         private IEnumerator BulletExpiry()
