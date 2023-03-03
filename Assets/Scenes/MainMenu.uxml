@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scenes/UI.uss?fileID=7433441132597879392&amp;guid=032cb0d25ab974749a964592e2246525&amp;type=3#UI" />
+    <ui:VisualElement>
+        <ui:Label text="TopDownShooter" display-tooltip-when-elided="true" style="-unity-font-style: bold; font-size: 32px; color: rgb(0, 0, 0); white-space: normal; -unity-text-align: upper-center;" />
+        <ui:Button text="Play" display-tooltip-when-elided="true" name="Play" class="button" />
+    </ui:VisualElement>
+</ui:UXML>
