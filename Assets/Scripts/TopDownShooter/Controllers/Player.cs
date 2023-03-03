@@ -25,6 +25,10 @@ namespace TopDownShooter.Controllers
 			ShootCheck();
 		}
 
+		private void OnTriggerEnter2D(Collider2D col)
+		{
+			PelletCheck(col);
+		}
 
 		private void Movement()
 		{
@@ -50,6 +54,13 @@ namespace TopDownShooter.Controllers
 			{
 				Instantiate(bullet, transform.position, transform.rotation);
 			}
+		}
+		
+		private static void PelletCheck(Component col)
+		{
+			if (!col.CompareTag("Pellet")) return;
+			GameManager.AddScore(col.GetComponent<Pellet>().score);
+			Destroy(col.gameObject);
 		}
 	}
 }
