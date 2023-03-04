@@ -4,7 +4,6 @@ namespace TopDownShooter.Controllers
 {
 	public class Spawn : MonoBehaviour
 	{
-		
 		public GameObject enemyPrefab;
 		private float spawnRange = 7;
 		public int enemyCount;
@@ -16,7 +15,6 @@ namespace TopDownShooter.Controllers
 		private void Start()
 		{
 			SpawnEnemyWave(waveNumber);
-			
 		}
 
 		// Update is called once per frame
@@ -26,7 +24,6 @@ namespace TopDownShooter.Controllers
 			{
 				waveNumber++;
 				SpawnEnemyWave(waveNumber);
-				
 			}
 		}
 
