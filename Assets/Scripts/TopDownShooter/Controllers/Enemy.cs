@@ -56,6 +56,7 @@ namespace TopDownShooter.Controllers
 			if (collision.gameObject.CompareTag("Player"))
 			{
 				Destroy(collision.gameObject);
+				GameManager.GameOver();
 			}
 		}
 
