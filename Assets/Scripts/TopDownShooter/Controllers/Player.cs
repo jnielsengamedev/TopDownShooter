@@ -47,7 +47,7 @@ namespace TopDownShooter.Controllers
 
 			transform.rotation = rotation;
 		}
-		
+
 		private void ShootCheck()
 		{
 			if (Input.GetButtonDown("Fire1"))
@@ -55,7 +55,7 @@ namespace TopDownShooter.Controllers
 				Instantiate(bullet, transform.position, transform.rotation);
 			}
 		}
-		
+
 		private static void PelletCheck(Component col)
 		{
 			if (!col.CompareTag("Pellet")) return;
