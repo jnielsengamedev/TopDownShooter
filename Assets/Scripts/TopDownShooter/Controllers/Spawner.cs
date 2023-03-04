@@ -14,17 +14,17 @@ namespace TopDownShooter.Controllers
 
 		public Transform[] spawnPoints;
 
-		bool spawningWave;
+		private bool spawningWave;
 
 
 		// Start is called before the first frame update
-		void Start()
+		private void Start()
 		{
 			StartCoroutine(SpawnEnemyWave(waveNumber));
 		}
 
 		// Update is called once per frame
-		void Update()
+		private void Update()
 		{
 			if (enemyCount == 0 && !spawningWave)
 			{

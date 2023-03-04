@@ -5,11 +5,10 @@ namespace TopDownShooter.Controllers
 	public class Spawn : MonoBehaviour
 	{
 		public GameObject enemyPrefab;
-		private float spawnRange = 7;
 		public int enemyCount;
-
-
 		public int waveNumber = 1;
+		
+		private float spawnRange = 7;
 
 		// Start is called before the first frame update
 		private void Start()
